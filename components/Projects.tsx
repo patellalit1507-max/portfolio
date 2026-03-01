@@ -15,22 +15,22 @@ import Button from './Button'
  */
 const projects = [
   {
-    id: 'project-one',
-    title: 'Project One',
-    role: ['Product design', 'Web dev'],
+    id: '#01',
+    title: 'nine2five',
+    role: ['App dev', 'full stack'],
     description:
-      'A short description of what this project does and the problem it solves. Replace with your real project details.',
+      'Application is an initiative to solve traffic problem in meteros using deep analytics',
     href: '#',
     bg: '#00081f',
     accent: '#3959f9',
     textColor: '#ffffff',
   },
   {
-    id: 'project-two',
-    title: 'Project Two',
-    role: ['App dev', 'Frontend'],
+    id: '#02',
+    title: 'calmVritti',
+    role: ['App dev', 'full stack'],
     description:
-      'A short description of what this project does and the problem it solves. Replace with your real project details.',
+      'A application which will provide you best personalized yoga session.',
     href: '#',
     bg: '#1a0a00',
     accent: '#e85d00',

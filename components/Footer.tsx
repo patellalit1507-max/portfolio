@@ -19,10 +19,10 @@ const columns = [
   {
     heading: 'Connect',
     links: [
-      { label: 'GitHub',    href: 'https://github.com/YOUR_USERNAME' },
-      { label: 'LinkedIn',  href: 'https://linkedin.com/in/YOUR_USERNAME' },
+      { label: 'GitHub',    href: 'https://github.com/patellalit1507-max/' },
+      { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/lalitpatel1507/' },
       { label: 'Twitter/X', href: 'https://x.com/YOUR_USERNAME' },
-      { label: 'Email',     href: 'mailto:hello@lalitpatel.com' },
+      { label: 'Email',     href: 'mailto:patellalit1507@gmail.com' },
     ],
   },
 ]

@@ -1,8 +1,5 @@
 'use client'
 
-import Badge from './Badge'
-import Button from './Button'
-
 export default function Hero() {
   return (
     <section
@@ -12,135 +9,177 @@ export default function Hero() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: 'calc(var(--header-height) + 3rem) var(--wrap-x) 5rem',
+        padding: 'clamp(3rem, 8vw, 6rem) var(--wrap-x) 5rem',
         position: 'relative',
-        overflow: 'hidden',
       }}
     >
-      {/* Status badge — top left */}
-      <div style={{ marginBottom: '3rem' }}>
-        <Badge text="Currently building" />
-      </div>
-
-      {/* Main content grid */}
+      {/* ── Top row: avatar left · "Now" panel right ── */}
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '3rem',
-          alignItems: 'end',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          marginBottom: '3rem',
+          gap: '2rem',
         }}
-        className="lg:grid-cols-[1fr_auto]"
       >
-        {/* Left — text */}
-        <div>
-          {/* Display name */}
-          <h1
-            className="heading-xl"
-            style={{
-              color: 'var(--bg-950)',
-              marginBottom: '2rem',
-              maxWidth: 'none',
-            }}
-          >
-            Lalit
-            <br />
-            Patel
-          </h1>
-
-          {/* Role + tagline */}
-          <div style={{ maxWidth: '48ch', marginBottom: '2.5rem' }}>
-            <p
-              style={{
-                fontSize: '1.125rem',
-                fontWeight: 400,
-                color: 'var(--bg-950)',
-                marginBottom: '0.6rem',
-                letterSpacing: '-0.01em',
-              }}
-            >
-              Good Human
-            </p>
-            <p
-              style={{
-                fontSize: '1rem',
-                color: 'var(--text-900)',
-                lineHeight: 1.6,
-              }}
-            >
-              Building thoughtful applications that improve everyday life and
-              human well-being.
-            </p>
-          </div>
-
-          {/* CTA */}
-          <Button href="#projects">See my work</Button>
+        {/* Avatar — top left, rounded square */}
+        <div
+          style={{
+            width: 'clamp(120px, 14vw, 180px)',
+            height: 'clamp(120px, 14vw, 180px)',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            backgroundColor: 'var(--bg-200)',
+            flexShrink: 0,
+            border: '1px solid var(--border-100)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src="/avatar.png"
+            alt="Lalit Patel"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            draggable={false}
+          />
         </div>
 
-        {/* Right — profile photo */}
+        {/* Now panel — top right */}
         <div
           style={{
             display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'flex-end',
+            flexDirection: 'column',
+            gap: '0.6rem',
+            maxWidth: '22ch',
+            textAlign: 'right',
           }}
         >
-          <div
-            title="Profile photo"
+          {/* Beacon badge */}
+          <span
             style={{
-              width: 'clamp(140px, 20vw, 260px)',
-              height: 'clamp(140px, 20vw, 260px)',
-              borderRadius: '50%',
-              border: '2px dashed var(--border-200, #ccc)',
-              overflow: 'hidden',
-              cursor: 'grab',
-              flexShrink: 0,
-              position: 'relative',
-              backgroundColor: 'var(--bg-200)',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'flex-end',
+              gap: '0.4rem',
+              fontSize: '0.8125rem',
+              color: 'var(--text-900)',
             }}
           >
-            {/*
-              TODO: Replace this SVG avatar with your real photo.
-              1. Add your image to /public/avatar.jpg (or .webp)
-              2. Replace the <img> tag below:
-                 <img src="/avatar.jpg" alt="Lalit Patel" style={{ width:'100%', height:'100%', objectFit:'cover' }} />
-            */}
-            <img
-              src="/avatar-placeholder.svg"
-              alt="Lalit Patel"
-              style={{ width: '65%', height: '65%', opacity: 0.4 }}
-              draggable={false}
+            <span
+              style={{
+                width: '0.45rem',
+                height: '0.45rem',
+                borderRadius: '50%',
+                backgroundColor: '#f97316',
+                animation: 'Badge-beacon-fade 1.3s linear infinite',
+                flexShrink: 0,
+              }}
             />
-          </div>
+            Now
+          </span>
+
+          {/* Status description */}
+          <p
+            style={{
+              fontSize: '0.875rem',
+              color: 'var(--text-900)',
+              lineHeight: 1.55,
+            }}
+          >
+            Currently building{' '}
+            <em>nine2five</em>{' '}
+            and{' '}
+            <em>calmVritti</em>.{' '}
+            Visit{' '}
+            <a
+              href="#projects"
+              style={{
+                color: 'var(--bg-950)',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+              }}
+            >
+              projects
+            </a>{' '}
+            for latest work.
+          </p>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div
+      {/* ── Main heading ── */}
+      <h1
         style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: 'var(--wrap-x)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          color: 'var(--text-900)',
-          fontSize: '0.8125rem',
-          fontFamily: 'var(--font-geist-mono)',
+          fontSize: 'clamp(2.75rem, 2.75rem + 4.5vw, 7.5rem)',
+          fontWeight: 100,
+          letterSpacing: '-0.03em',
+          lineHeight: 1.0,
+          color: 'var(--bg-950)',
+          maxWidth: 'none',
+          marginBottom: '2.5rem',
         }}
       >
-        <span
+        I build thoughtful
+        <br />
+        applications for
+        <br />
+        everyday life.
+      </h1>
+
+      {/* ── Pill CTA buttons ── */}
+      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+        <a
+          href="#projects"
           style={{
-            display: 'inline-block',
-            width: '1.5rem',
-            height: '1px',
-            backgroundColor: 'var(--border-100)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            padding: '0.6rem 1.375rem',
+            borderRadius: '999px',
+            border: '1px solid var(--border-950)',
+            fontSize: '0.9375rem',
+            color: 'var(--bg-950)',
+            fontWeight: 400,
+            transition: `background var(--trans-fastest) var(--ease), color var(--trans-fastest) var(--ease)`,
+            cursor: 'pointer',
           }}
-        />
-        Scroll to explore
+          onMouseEnter={(e) => {
+            const el = e.currentTarget as HTMLElement
+            el.style.background = 'var(--bg-950)'
+            el.style.color = 'var(--text-50)'
+          }}
+          onMouseLeave={(e) => {
+            const el = e.currentTarget as HTMLElement
+            el.style.background = 'transparent'
+            el.style.color = 'var(--bg-950)'
+          }}
+        >
+          Selected Works
+        </a>
+
+        <a
+          href="#about"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            padding: '0.6rem 1.375rem',
+            borderRadius: '999px',
+            border: '1px solid var(--border-100)',
+            fontSize: '0.9375rem',
+            color: 'var(--text-950)',
+            fontWeight: 400,
+            transition: `border-color var(--trans-fastest) var(--ease)`,
+            cursor: 'pointer',
+          }}
+          onMouseEnter={(e) =>
+            ((e.currentTarget as HTMLElement).style.borderColor = 'var(--border-950)')
+          }
+          onMouseLeave={(e) =>
+            ((e.currentTarget as HTMLElement).style.borderColor = 'var(--border-100)')
+          }
+        >
+          About me
+        </a>
       </div>
     </section>
   )
