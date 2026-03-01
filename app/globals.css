@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ──────────────────────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --bg-50:   #ffffff;
+  --bg-100:  #fbfbfb;
+  --bg-200:  #e5e5e5;
+  --bg-800:  #1a1a1a;
+  --bg-950:  #111111;
+  --primary: hsl(25 100% 50%);
+  --text-950: #4d4d4d;
+  --text-900: #666666;
+  --text-50:  #ffffff;
+  --border-100: #e2e8f0;
+  --border-950: #111111;
+
+  /* Easing & timing */
+  --ease:           cubic-bezier(0.68, 0, 0.1, 1);
+  --trans-fastest:  0.3s;
+  --trans-fast:     0.6s;
+  --trans:          1.3s;
+
+  /* Layout */
+  --grid-gap-m:    1.5rem;
+  --grid-gap-l:    1.5rem;
+  --header-height: 3.75rem;
+  --wrap-x:        6.25%;
+}
+
+@media (min-width: 64em) {
+  :root {
+    --header-height: 5.5rem;
+    --wrap-x: max(4rem, 6.25%);
+  }
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+
+@keyframes Splash-text {
+  0%   { opacity: 0; transform: translateY(100%) skewX(-50deg); }
+  100% { opacity: 1; transform: translateY(0)    skewX(0deg); }
+}
+
+@keyframes Splash-loader {
+  to { clip-path: inset(0 -33.333% 0 0); }
+}
+
+@keyframes Badge-beacon-fade {
+  50% { opacity: 0.2; }
+  to  { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(2rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  min-width: 320px;
+  background-color: var(--bg-100);
+}
+
+body {
+  background-color: var(--bg-100);
+  color: var(--text-950);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.015em;
+  color: var(--bg-950);
+  max-width: var(--heading-max-width, 30ch);
+}
+
+h1 { font-size: clamp(2.5rem,   2.5rem   + 1vw, 6.375rem); line-height: 1.1;   font-weight: 100; }
+h2 { font-size: clamp(2rem,     2rem     + 1vw, 3rem);     line-height: 1.125; font-weight: 300; }
+h3 { font-size: clamp(1.6875rem,1.6875rem + 1vw, 2.5rem);  line-height: 1.185; font-weight: 400; }
+h5 { font-size: clamp(1.125rem, 1.125rem + 1vw, 1.5rem);   line-height: 1.3;   font-weight: 400; }
+
+p { max-width: 56ch; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── Splash screen state ────────────────────────────────────────────────── */
+
+/* Page content hidden until loaded */
+html:not([data-loaded]) .page-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html[data-loaded] .page-content {
+  animation: fade-in 0.6s var(--ease) both;
+}
+
+/* Splash hides itself after load */
+html[data-loaded] .splash {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease);
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Heading display XL ─────────────────────────────────────────────────── */
+
+.heading-xl {
+  font-size: clamp(3rem, 3rem + 8vw, 12rem);
+  font-weight: 100;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* ─── Wrap / container ───────────────────────────────────────────────────── */
+
+.wrap {
+  padding-left:  var(--wrap-x);
+  padding-right: var(--wrap-x);
+  width: 100%;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-100); }
+::-webkit-scrollbar-thumb { background: var(--border-950); border-radius: 999px; }
+
+/* ─── Focus visible ──────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
