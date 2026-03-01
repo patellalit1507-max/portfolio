@@ -56,13 +56,14 @@ export default function Header() {
             }}
           >
             Lalit Patel
-            <span style={{ color: 'var(--text-900)', fontWeight: 300 }}>— Work</span>
+            <span className="hidden md:inline" style={{ color: 'var(--text-900)', fontWeight: 300 }}>— Work</span>
           </a>
 
           {/* Circle arrow button */}
           <a
             href="#projects"
             aria-label="Scroll to projects"
+            className="hidden md:flex"
             style={{
               width: '1.875rem',
               height: '1.875rem',

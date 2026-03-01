@@ -33,9 +33,9 @@ const projects = [
     description:
       'A application which will provide you best personalized yoga session.',
     href: '#',
-    bg: '#1a0a00',
-    accent: '#e85d00',
-    textColor: '#ffffff',
+    bg: '#f5f0e8',
+    accent: '#b85c00',
+    textColor: '#1a0a00',
     logo: '/calmvritti-logo.png',
   },
 ]
@@ -98,14 +98,16 @@ function ProjectCard({
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      {/* Centered logo */}
+      {/* Logo — upper area */}
       {project.logo && (
         <div
           style={{
             position: 'absolute',
-            inset: 0,
+            top: 'clamp(3rem, 8vw, 7rem)',
+            left: 0,
+            right: 0,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
             pointerEvents: 'none',
           }}
@@ -115,7 +117,7 @@ function ProjectCard({
             alt={project.title}
             draggable={false}
             style={{
-              width: 'clamp(160px, 28vw, 340px)',
+              width: 'clamp(140px, 22vw, 280px)',
               height: 'auto',
               objectFit: 'contain',
             }}
