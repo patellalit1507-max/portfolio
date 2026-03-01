@@ -24,6 +24,7 @@ const projects = [
     bg: '#00081f',
     accent: '#3959f9',
     textColor: '#ffffff',
+    logo: '/nine2five-logo..png',
   },
   {
     id: '#02',
@@ -35,6 +36,7 @@ const projects = [
     bg: '#1a0a00',
     accent: '#e85d00',
     textColor: '#ffffff',
+    logo: '/calmvritti-logo.png',
   },
 ]
 
@@ -96,20 +98,30 @@ function ProjectCard({
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      {/* Decorative circle (Stamp placeholder) */}
-      <div
-        aria-hidden
-        style={{
-          position: 'absolute',
-          top: 'clamp(2rem, 8vw, 6rem)',
-          right: 'var(--wrap-x)',
-          width: 'clamp(80px, 12vw, 160px)',
-          height: 'clamp(80px, 12vw, 160px)',
-          borderRadius: '50%',
-          border: `1px solid ${project.accent}`,
-          opacity: 0.25,
-        }}
-      />
+      {/* Centered logo */}
+      {project.logo && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            pointerEvents: 'none',
+          }}
+        >
+          <img
+            src={project.logo}
+            alt={project.title}
+            draggable={false}
+            style={{
+              width: 'clamp(160px, 28vw, 340px)',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
+        </div>
+      )}
 
       {/* Role badges */}
       <div
