@@ -165,7 +165,7 @@ export default function Header() {
                 display: 'block', color: 'var(--text-50)',
                 fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                 fontWeight: 100, letterSpacing: '-0.03em',
-                lineHeight: 1.2, paddingBlock: '0.3rem',
+                lineHeight: 1.2, paddingBlock: '0.1rem',
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? 'translateY(0)' : 'translateY(1rem)',
                 transition: `opacity var(--trans-fast) var(--ease) ${0.1 + i * 0.07}s,

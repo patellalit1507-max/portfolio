@@ -77,7 +77,7 @@ export default function Hero() {
                 flexShrink: 0,
               }}
             />
-            Now
+            Currently building
           </span>
 
           {/* Status description */}
