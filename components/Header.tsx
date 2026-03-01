@@ -69,7 +69,6 @@ export default function Header() {
               height: '1.875rem',
               borderRadius: '50%',
               border: '1px solid var(--border-950)',
-              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'var(--bg-950)',
